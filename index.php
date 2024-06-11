@@ -17,21 +17,23 @@
         for($i=1; $i<=$quantNum; $i++){
             echo"<center><table>
                 <tr class='esquerdo'>
-                    <td><p>Número: $i<br></p>
-                    <p>Valor: R$$valor,00<br></p>
-                    <p>Nome:....................<br></p>
-                    <p>Telefone:................<br></p></td>
-                <td class='direito'>Friends Action<br><br>
-                    Número: $i<br><br>
-                    Prêmio: $premio<br>
-                    <img src='unoConversivel.jpeg'></td></tr>
-                
-            
-            
+                    <td class='esq'>
+                        <p>Número: $i<br></p>
+                        <p>Valor: R$$valor,00<br></p>
+                        <p>Nome:....................<br></p>
+                        <p>Telefone:................<br></p>
+                    </td>
+                    <td class='mei'>
+                        <p>Friends Action<br></p>
+                        <p>Número: $i<br></p>
+                        <p>Prêmio: $premio<br></p>
+                    </td>
+                    <td class=''dir>
+                        <img src='unoConversivel.jpg'>
+                    </td>
+                </tr>
             </table></center>";
         }
-
-
     ?>
     </div>
 </body>
