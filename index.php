@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-    <form action="rifa.php" method="POST">
+    <form action="index.php" method="POST">
         <h1>Rifa Digital</h1>
         <label for="premio" >Insira um prêmio:</label>
         <input type="text" name="premio">
