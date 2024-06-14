@@ -8,32 +8,64 @@
 </head>
 <body>
     <div class="container">
-    <h1>Rifa</h1>
-    <?php
-        $premio = 'Uno conversível';
-        $valor = 4.00;
-        $quantNum = 5;
+    <form action="rifa.php" method="POST">
+        <h1>Rifa</h1>
+        <label for="premio">Prêmio:</label>
+        <input type="text" name="premio">
 
-        for($i=1; $i<=$quantNum; $i++){
-            echo"<center><table>
-                <tr class='esquerdo'>
-                    <td class='esq'>
-                        <p>Número: $i<br></p>
-                        <p>Valor: R$$valor,00<br></p>
-                        <p>Nome:....................<br></p>
-                        <p>Telefone:................<br></p>
-                    </td>
-                    <td class='mei'>
-                        <p>Friends Action<br></p>
-                        <p>Número: $i<br></p>
-                        <p>Prêmio: $premio<br></p>
-                    </td>
-                    <td class=''dir>
-                        <img src='unoConversivel.jpg'>
-                    </td>
-                </tr>
-            </table></center>";
+        <label for="valor">Valor:</label>
+        <input type="text" name="valor">
+
+        <label for="quantNum">Quantidade:</label>
+        <input type="text" name="quantNum">
+
+        <label for="img">Imagem:</label>
+        <input type="url" name="img">
+        
+        <br>
+
+        <input type="submit" value="Criar">
+        <input type="reset" value="Limpar"><br>
+    </form>
+    <?php
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(isset($_POST['premio']) || isset($_POST['valor']) || isset($_POST['quantNum'])){
+            $premio = $_POST['premio'];
+            $valor = $_POST['valor'];
+            $quantNum = $_POST['quantNum'];
+            $img = $_POST['img'];
+      
+            $erro = (empty($premio) || empty($valor) || empty($quantNum)) ?
+            "O campo é obrigatórios" : (($valor < 0 || $quantNum < 0) ?
+            "Por favor, insira valores válidos" : "");
+            if($erro){
+                echo $erro;
+            } else {
+                for($i=1; $i<=$quantNum; $i++){
+                    echo"<center><table>
+                        <tr class='esquerdo'>
+                            <td class='esq'>
+                                <p>Número: $i<br></p>
+                                <p>Valor: R$$valor<br></p>
+                                <p>Nome:....................<br></p>
+                                <p>Telefone:................<br></p>
+                            </td>
+                            <td class='mei'>
+                                <p>Friends Action<br></p>
+                                <p>Número: $i<br></p>
+                                <p>Prêmio: $premio<br></p>
+                            </td>
+                            <td class='dir'>
+                                <img src='$img'>
+                            </td>
+                        </tr>
+                    </table></center>";
+                }
+            }
+        } else{
+            echo "Formulário não enviado corretamente";
         }
+    }   
     ?>
     </div>
 </body>
