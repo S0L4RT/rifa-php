@@ -9,23 +9,21 @@
 <body>
     <div class="container">
     <form action="rifa.php" method="POST">
-        <h1>Rifa</h1>
-        <label for="premio">Prêmio:</label>
+        <h1>Rifa Digital</h1>
+        <label for="premio" >Insira um prêmio:</label>
         <input type="text" name="premio">
 
-        <label for="valor">Valor:</label>
-        <input type="text" name="valor">
+        <label for="valor">Insira o valor da rifa:</label>
+        <input type="number" name="valor">
+        <br><br>
+        <label for="quantNum">Inisra a quantidade de números:</label>
+        <input type="number" name="quantNum">
 
-        <label for="quantNum">Quantidade:</label>
-        <input type="text" name="quantNum">
-
-        <label for="img">Imagem:</label>
+        <label for="img">Insira o link de uma imagem:</label>
         <input type="url" name="img">
-        
-        <br>
-
-        <input type="submit" value="Criar">
-        <input type="reset" value="Limpar"><br>
+        <br><br>
+        <input type="submit" value="Criar" class="botao">
+        <input type="reset" value="Limpar" class="botao"><br>
     </form>
     <?php
     if($_SERVER["REQUEST_METHOD"] == "POST"){
